@@ -11,7 +11,7 @@ module Lib
       evaluatePostfix, evaluateExpression, 
       removeUnaryHeadPositive, combineUnaryOperators,
       addZeroStringUnaryHeadPositiveOrNegative, removePlusNum,
-      combineNum, addZeroExponent
+      combineNum, addZeroExponent, countDots, 
     ) where
 
 import Data.Char (isSpace, isNumber, isDigit) 
@@ -31,12 +31,12 @@ isOperator x = x `elem` "+-*/^el"
 isOperand :: String -> Bool
 isOperand "-" = False
 isOperand ('-':xs) = isOperand' xs
-isOperand xs  = isOperand' xs && (countDots 0 xs <= 1)
+isOperand xs = isOperand' xs && (countDots 0 xs <= 1)
 
 isOperand' :: String -> Bool
 isOperand' []     = False
 isOperand' [x]    = isDigit x
-isOperand' (x:xs) = isDigit x || x == '.' && isOperand' xs
+isOperand' (x:xs) = (isDigit x || x == '.') && isOperand' xs
 
 -- countDots, dots -> string -> true if 1 or less dots
 countDots :: Int -> String -> Int

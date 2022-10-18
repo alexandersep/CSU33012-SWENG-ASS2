@@ -16,7 +16,7 @@
           `isOperatorLeftAssociative`, `errorLeftAssociativity`, `removeSpaces`,
           `splitToList`, `addZeroStringUnaryHeadPositiveOrNegative`,
           `combineUnaryOperators`, `removeUnaryHeadPositive`, `removePlusNum`,
-          `combineNum`, `addZeroExponent`. All functions including the ones I wrote
+          `combineNum`, `addZeroExponent`, `countDots`, `isOperand'`. All functions including the ones I wrote
           now take into account the changes for this assignment, these changes are 
           log, exp.
         - Implemented the basic Input and Output when running programme. 

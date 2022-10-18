@@ -9,7 +9,7 @@ import Lib
       popOperatorStackUpToParen, getFirstElem,
       evaluatePostfix, evaluateExpression, combineUnaryOperators,
       removeUnaryHeadPositive, removePlusNum, addZeroStringUnaryHeadPositiveOrNegative,
-      combineNum, countBrackets, addZeroExponent
+      combineNum, countBrackets, addZeroExponent, countDots
       )
 import           Test.Hspec
 import           Test.QuickCheck
@@ -17,6 +17,10 @@ import           Test.QuickCheck
 spec :: Spec
 spec = do
     describe "Validate function for addZeroExponent" $ do
+        it "returns [\"5\"] for [\"5\"]" $ do
+            addZeroExponent ["5"] `shouldBe` ["5"] 
+        it "returns [\"0\",\"e\",\"(\"] for [\"e\",\"(\"]" $ do
+            addZeroExponent ["e","("] `shouldBe` ["0","e","("] 
         it "returns [\"0\",\"e\",\"5\"] for [\"e\",\"5\"]" $ do
             addZeroExponent ["e","5"] `shouldBe` ["0","e","5"] 
         it "returns [\"1\",\"+\",\"0\",\"e\",\"5\"] for [\"1\",\"+\",\"e\",\"5\"]" $ do
@@ -42,6 +46,13 @@ spec = do
         it "returns False for isOperator *" $ do
             isOperator 'l' `shouldBe` True 
 
+
+    describe "Validate function for countDots" $ do
+        it "returns 3 for countDots \"1234.34.532.2\"" $ do
+            countDots 0 "1234.34.532.2" `shouldBe` 3 
+        it "returns 1 for countDots \"1234.34\"" $ do
+            countDots 0 "1234.34" `shouldBe` 1 
+
     describe "Validate function for isOperand" $ do
         it "returns False for isOperand []" $ do
             isOperand [] `shouldBe` False 
@@ -57,10 +68,18 @@ spec = do
             isOperand "-----1" `shouldBe` False
         it "returns True for isOperand - ------1" $ do
             isOperand "- -----1" `shouldBe` False
+        it "returns True for isOperand -1" $ do
+            isOperand "-1.34.34" `shouldBe` True -- despite this seeming false isOperand takes in numbers that look real but may not be 
+        it "returns True for isOperand 100" $ do
+            isOperand "100.1234" `shouldBe` True
 
     describe "Validate function for operatorPrecedence" $ do
         it "returns Nothing for operatorPrecedence a" $ do
             operatorPrecedence 'a' `shouldBe` Nothing 
+        it "returns Just 2 for operatorPrecedence -" $ do
+            operatorPrecedence 'e' `shouldBe` Just 5 
+        it "returns Just 2 for operatorPrecedence -" $ do
+            operatorPrecedence 'l' `shouldBe` Just 5 
         it "returns Just 4 for operatorPrecedence ^" $ do
             operatorPrecedence '^' `shouldBe` Just 4 
         it "returns Just 3 for operatorPrecedence *" $ do
@@ -203,6 +222,10 @@ spec = do
             getFirstElem (["+"], ["-"], ["/"]) `shouldBe` ["+"]
 
     describe "Validate function for evaluateExpression" $ do
+        it "returns 1.0986123 for 0 l 3" $ do -- 0 is just filler that's needed since we pretend it's an infix expression
+            evaluateExpression 0 "l" 3 `shouldBe` 1.0986123 
+        it "returns 20.085537 for 0 e 3" $ do -- 0 is just filler that's needed since we pretend it's an infix expression
+            evaluateExpression 0 "e" 3 `shouldBe` 20.085537 
         it "returns 6 for 3 * 2" $ do
             evaluateExpression 3 "*" 2 `shouldBe` 6 
         it "returns 9 for 18 / 2" $ do
@@ -308,6 +331,8 @@ spec = do
             combineNum ["+","3"] `shouldBe` ["+","3"]
         it "returns [\"+\",\"3\"] for [\"+\",\"3\"]" $ do
             combineNum ["+","3"] `shouldBe` ["+","3"]
+        it "returns [\"234.234\"] for [\"234\",\".\",\"234\"]" $ do
+            combineNum ["234",".","234"] `shouldBe` ["234.234"]
         it "returns [\"0\",\"-\",\"3\",\"*\",\"2\",\"/\",\"5\",\"+\",\"1\",\"-\",\"(\",\"(\",\"-1\",\"-\",\"0\",\")\",\"-\",\"(\",\"-1\",\"+\",\"2\",\")\",\")\",\"*\",\"4\"] for [\"0\",\"-\",\"3\",\"*\",\"2\",\"/\",\"5\",\"+\",\"1\",\"-\",\"(\",\"(\",\"-\",\"1\",\"-\",\"0\",\")\",\"-\",\"(\",\"-\",\"1\",\"+\",\"2\",\")\",\")\",\"*\",\"4\"]" $ do
             combineNum ["0","-","3","*","2","/","5","+","1","-","(","(","-","1","-","0",")","-","(","-","1","+","2",")",")","*","4"] `shouldBe`["0","-","3","*","2","/","5","+","1","-","(","(","-1","-","0",")","-","(","-1","+","2",")",")","*","4"] 
     
