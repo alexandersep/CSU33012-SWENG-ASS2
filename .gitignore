@@ -1,0 +1,6 @@
+# Haskell Related Tools
+*.yaml
+*.yaml.lock
+.stack-work/
+.vscode/
+dist-newstyle/
