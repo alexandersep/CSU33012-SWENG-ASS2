@@ -13,7 +13,8 @@ Haskell Implementation of Unit testing a basic calculator \\
 6. Run Haskell programme with `./run.sh`.
 
 ## Calculator Usage & Examples 
-* Inputs include brackets, negative operands, operands, operators "+-/\*^" and unary operators "+-"
+* Inputs include brackets, negative operands, operands, operators "+-/\*^" and unary operators "+-".
+  Operands do not work 
 ```bash
 ./run.sh
 Haskell infix Calculator, Operators include "+-*^le", Note: Input without Qutoes e.g. 2 + 3 instead of "2 + 3"
