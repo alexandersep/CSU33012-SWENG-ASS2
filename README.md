@@ -18,21 +18,21 @@ Haskell Implementation of Unit testing a basic calculator \\
 ./run.sh
 Haskell infix Calculator, Operators include "+-*^le", Note: Input without Qutoes e.g. 2 + 3 instead of "2 + 3"
 This calculator computes unary operators
-Example of complex query with unary operators: - ( -3 + - -+ + 4 ) * l 10 - e(4.2) + 1.1234 * 34.343 / - e 1.4
+Example of complex query with unary operators: - ( -3 + - -+ + 4 ) * l 10 - e(4.2) + 1.1234 * 34.343 / e 1.4
 Please input an infix expression: -3 *-2 / 5 + 1 - ((1 - 0) - ( -1 --2))*4
 The answer is: 2.2
 
 ./run.sh
 Haskell infix Calculator, Operators include "+-*^le", Note: Input without Qutoes e.g. 2 + 3 instead of "2 + 3"
 This calculator computes unary operators
-Example of complex query with unary operators: - ( -3 + - -+ + 4 ) * l 10 - e(4.2) + 1.1234 * 34.343 / - e 1.4
+Example of complex query with unary operators: - ( -3 + - -+ + 4 ) * l 10 - e(4.2) + 1.1234 * 34.343 / e 1.4
 Please input an infix expression: --- -+ + - + -- 3 *+-+-2 / -- 5 + 1 - (  (- 1 - 0) - ( -1 --2)  )*  4
 The answer is: 7.8
 
 ./run.sh
 Haskell infix Calculator, Operators include "+-*^le", Note: Input without Qutoes e.g. 2 + 3 instead of "2 + 3"
 This calculator computes unary operators
-Example of complex query with unary operators: - ( -3 + - -+ + 4 ) * l 10 - e(4.2) + 1.1234 * 34.343 / - e 1.4
+Example of complex query with unary operators: - ( -3 + - -+ + 4 ) * l 10 - e(4.2) + 1.1234 * 34.343 / e 1.4
 Please input an infix expression: 3+5*e(4.2)/(5+7) 
 The answer is: 30.786 
 
@@ -40,7 +40,7 @@ The answer is: 30.786
 ./run.sh
 Haskell infix Calculator, Operators include "+-*^le", Note: Input without Qutoes e.g. 2 + 3 instead of "2 + 3"
 This calculator computes unary operators
-Example of complex query with unary operators: - ( -3 + - -+ + 4 ) * l 10 - e(4.2) + 1.1234 * 34.343 / - e 1.4
+Example of complex query with unary operators: - ( -3 + - -+ + 4 ) * l 10 - e(4.2) + 1.1234 * 34.343 / e 1.4
 Please input an infix expression: ++-- - (   3 + -4 * e 4.2 / 4.234 - - + 4 * 1 - - 0 + 2 * l 1 + e    1 ) 
 The answer is 53.282
 ```

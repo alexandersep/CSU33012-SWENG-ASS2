@@ -5,9 +5,7 @@ module Lib
       infixValidator, infixValidator', popOperatorStackUpToParen,
       infixToPostfix', countBrackets,
       errorPrecedence, errorLeftAssociativity,
-      splitToList, removeSpaces,
-      infixToPostfix, popRemaining,
-      popOperatorStack, getFirstElem,
+      splitToList, removeSpaces, infixToPostfix, popRemaining, popOperatorStack, getFirstElem,
       evaluatePostfix, evaluateExpression, 
       removeUnaryHeadPositive, combineUnaryOperators,
       addZeroStringUnaryHeadPositiveOrNegative, removePlusNum,
@@ -30,6 +28,7 @@ isOperator x = x `elem` "+-*/^el"
 -- non negative operand, operands in our case are non negative
 isOperand :: String -> Bool
 isOperand "-" = False
+isOperand ('.':xs) = False
 isOperand ('-':xs) = isOperand' xs
 isOperand xs = isOperand' xs && (countDots 0 xs <= 1)
 
@@ -86,7 +85,7 @@ infixValidator' (x:xs)
  | x == ")"           && (firstOperatorElem || head xs == ")") = infixValidator' xs
  | x == "("           && (firstOperandElem  || head xs == "(") = infixValidator' xs
  | otherwise = False
- where firstOperandElem  = isOperand . head  $ xs
+ where firstOperandElem  = isOperand . head $ xs
        firstOperatorElem = isOperator . head . head $ xs
 
 countBrackets :: [String] -> Int -> Int -> Bool
@@ -140,7 +139,7 @@ combineNum (x:y:[]) = x : [y]
 combineNum (x:y:z:xs)
  | not (isOperand x) && x /= ")" &&
     (y == "+" || y == "-") && 
-    isOperand z = x : (y ++ z) : combineNum xs
+    isOperand z = x : combineNum ((y++z):xs)
  | isOperand x && y == "." && isOperand z = (x ++ y ++ z) : combineNum xs
  | otherwise    = x : combineNum (y:z:xs)
 

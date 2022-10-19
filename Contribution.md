@@ -22,7 +22,7 @@
         - Implemented the basic Input and Output when running programme. 
         - Fixed Unary from Assignment 1 with edge case and 
           parsing, `-` and `+` and ensured it worked effectively
-          with Niall's evaluator, and validators.
+          with Niall's evaluator, and validators. Unary operators do not work in l and e (log() and exp())
 
 ### Graph/commit logs
 *TODO*
