@@ -1,11 +1,12 @@
-name: Haskell CD
+name: Haskell CI/CD
 
 on:
   push:
-    - CD-patch
-  create:
-    tags:
-      - "v*.*.*"
+    branches:
+      - main 
+    create:
+      tags:
+        - "v*.*.*"
       
 jobs:
   build:
