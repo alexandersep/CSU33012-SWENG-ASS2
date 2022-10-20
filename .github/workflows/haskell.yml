@@ -1,13 +1,15 @@
-name: Haskell CI
+name: Haskell CD
 
 on:
+  push:
+    - CD-patch
   create:
     tags:
       - "v*.*.*"
       
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: haskell:8.6.5 
     
     steps:
     - uses: actions/checkout@v3
@@ -31,7 +33,7 @@ jobs:
       uses: docker/login-action@v1
       with:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
-        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+        password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
     
     - name: Set up Docker Buildx
       id: buildx
@@ -44,7 +46,7 @@ jobs:
         context: ./
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/interactive_calculator:latest
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/haskell-calculator:1.0.0
       
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
