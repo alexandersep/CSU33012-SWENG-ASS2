@@ -11,7 +11,7 @@ on:
       
 jobs:
   build:
-    runs-on: haskell:8.6.5 
+    runs-on: ubuntu-latest 
     
     steps:
     - uses: actions/checkout@v3
@@ -48,7 +48,7 @@ jobs:
         context: ./
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/haskell-calculator:1.0.0
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/interactive-calculator:latest
       
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
