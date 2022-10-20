@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main 
+      - CD-patch
     create:
       tags:
         - "v*.*.*"
