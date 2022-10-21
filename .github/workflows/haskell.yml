@@ -34,7 +34,7 @@ jobs:
     - name: Run tests
       run: 
         stack setup
-        staack config set system-ghc --global true
+        stack config set system-ghc --global true
         stack build --only-dependencies
         stack test
           
