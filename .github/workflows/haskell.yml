@@ -17,8 +17,8 @@ jobs:
     - name: Test enviornment variable
       run: echo ${{ env.RELEASE_VERSION }}
 
-    - uses: actions/checkout@v3
-    - uses: actions/cache@v3
+    - uses: actions/checkout@v2
+    - uses: actions/cache@v2
       name: Cache ~/.stack
       with:
         path: ~/.stack
