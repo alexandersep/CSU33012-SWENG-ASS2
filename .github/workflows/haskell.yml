@@ -32,6 +32,9 @@ jobs:
           ${{ runner.os }}-stack-work-
 
     - name: Run tests
+      run: stack setup
+      run: staack config set system-ghc --global true
+      run: stack build --only-dependencies
       run: stack test
           
     - name: Login to Docker Hub
