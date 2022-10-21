@@ -2,7 +2,7 @@
 This Haskell implementation was mostly done in Assignment 1 of SWENG found in 
 [Assignment 1](https://github.com/alexandersep/CSU33012-SWENG-ASS2.git). Most of the code
 was written in Assignment 1 by Alexander Sepelenco sepelena@tcd.ie and Niall Sauvage sauvagen@tcd.ie.
-Haskell Implementation of Unit testing a basic calculator \\
+Haskell Implementation of Unit testing a basic calculator \\ 
 
 ## Instructions for Setup
 1. Clone repository with `git clone https://github.com/alexandersep/CSU33012-SWENG-ASS2.git`
