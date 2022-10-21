@@ -136,7 +136,7 @@ combineUnaryOperators (x:y:xs)
 combineNum :: [String] -> [String]
 combineNum [] = []
 combineNum [x] = [x]
-combineNum (x:y:[]) = x : [y]
+combineNum [x,y] = [x,y]
 combineNum (x:y:z:xs)
  | not (isOperand x) && x /= ")" &&
     (y == "+" || y == "-") && 

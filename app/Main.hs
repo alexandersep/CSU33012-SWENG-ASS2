@@ -21,7 +21,7 @@ main = do
             let splitInfixExrp = combineNum . removePlusNum . addZeroExponent . 
                                  addZeroStringUnaryHeadPositiveOrNegative . removeUnaryHeadPositive . 
                                  combineUnaryOperators . splitToList $ infixExpr -- split input to infix expression for evaluation and validation
-            let isInfixValid = infixValidator $ splitInfixExrp 
+            let isInfixValid = infixValidator splitInfixExrp 
             let infixCalculation = evaluatePostfix . infixToPostfix $ splitInfixExrp 
             if isInfixValid
                 then do 
