@@ -32,11 +32,11 @@ jobs:
           ${{ runner.os }}-stack-work-
 
     - name: Run tests
-        run: 
-          stack setup ;
-          stack config set system-ghc --global true ;
-          stack build --only-dependencies ;
-          stack test
+      run: 
+        stack setup ;
+        stack config set system-ghc --global true ;
+        stack build --only-dependencies ;
+        stack test
           
     - name: Login to Docker Hub
       uses: docker/login-action@v1
