@@ -71,6 +71,7 @@ errorLeftAssociativity x =
         Nothing -> "Error, does not have associativity"
 
 infixValidator :: [String] -> Bool
+infixValidator [x,y] = False -- cannot be infix if only two operands
 infixValidator xs = infixValidator' xs && countBrackets xs 0 0
 
 infixValidator' :: [String] -> Bool
@@ -135,7 +136,7 @@ combineUnaryOperators (x:y:xs)
 combineNum :: [String] -> [String]
 combineNum [] = []
 combineNum [x] = [x]
-combineNum (x:y:[]) = x : [y]
+combineNum [x,y] = [x,y]
 combineNum (x:y:z:xs)
  | not (isOperand x) && x /= ")" &&
     (y == "+" || y == "-") && 
