@@ -48,14 +48,14 @@ jobs:
       uses: docker/setup-buildx-action@v1
       
     - name: Build and push
-      if: startsWith(github.ref, 'refs/tags/v*.*.*')
+      if: startsWith(github.ref, 'refs/tags/v')
       id: docker_build
       uses: docker/build-push-action@v2
       with:
         context: ./
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/interactive-calculator:${{ env.RELEASE_VERSION }}
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/interactive-calculator:v${{ env.RELEASE_VERSION }}
       
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
