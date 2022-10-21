@@ -120,6 +120,10 @@ spec = do
     describe "Validate function for Infix Expressions" $ do
         it "returns False for []" $ do
           infixValidator [] `shouldBe` False
+        it "returns False for [\"*\",\"3\"]" $ do
+          infixValidator ["*","3"] `shouldBe` False
+        it "returns False for [\"l\",\"3\"]" $ do -- do note that addZeroExponent prevents it from just being two values
+          infixValidator ["l","3"] `shouldBe` False
         it "returns False for (30 + 5)2" $ do
           infixValidator ["(", "30", "+", "5", ")", "2"] `shouldBe` False
         it "returns True for (30 + 5) + 2" $ do
