@@ -29,6 +29,15 @@
     * Implemented the calculator into the web app
   * Contributed on the creation of documentaion
   * Contributed to creating the demo video
+
+* Annelee O' Mahony
+  * Collaborated with Alexander Sepelenco on the functions 
+    * Edited the functions for improvement/expansion of the calculator
+  * Package Management
+  * Created and recorded the Demo video
+  * Worked on the documentation
+
+
 ### Graph/commit logs
 *TODO*
 
