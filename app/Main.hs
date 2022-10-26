@@ -54,9 +54,9 @@ app = do
               (Expression "Answer could not be calculated", ())
       redirect "/" -- refresh screen
 
-  main :: IO ()
-  main = do
-      let expr = Expression ""
-      st <- ServerState <$> newIORef expr-- []
-      cfg <- defaultSpockCfg () PCNoDatabase st
-      runSpock 8080 (spock cfg app)
+main :: IO ()
+main = do
+    let expr = Expression ""
+    st <- ServerState <$> newIORef expr-- []
+    cfg <- defaultSpockCfg () PCNoDatabase st
+    runSpock 8080 (spock cfg app)
