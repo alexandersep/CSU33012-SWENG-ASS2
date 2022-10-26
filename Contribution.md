@@ -49,8 +49,13 @@
         - Fixed Unary operators partially from Assignment 1 with edge case and parsing, `-` and `+` and ensured it worked effectively
           Unary operators do not work in l and e (log and exp). It does not work with brackets if at the beginning of a line.
           e.g. `-- (1 + 2)` does not work but `1 -- (1 + 2)` does.
+          
 * Elliot Lyons
-    - TODO
+    * Collaborated with Brian Sharkey to develop the webapp
+        * Created the initial version of the app, designed initial layout and dealt with user input
+    * Helped with documentation and video creation
+
+
 * Brian Sharkey
   * Collaborated with Elliot Lyons to develop a webapp for the calculator
     * Implemented the calculator into the web app
