@@ -51,6 +51,6 @@ The answer is 53.282
 
 #### Contributors
 Alexander Sepelenco, sepelena@tcd.ie \
-Elliot Lyons, elliot243lyons@gmail.com or lyonse@tcd.ie \
+Elliot Lyons, elliot243lyons@gmail.com \
 Annelee O Mahony, omahona5@tcd.ie \
 Brain Sharkey, bsharkey@tcd.ie
