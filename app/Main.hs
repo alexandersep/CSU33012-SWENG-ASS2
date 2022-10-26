@@ -36,3 +36,27 @@ app = do
       form_ [method_ "text"] $ do
         label_ $ do
             output_ . toHtml . contents $ expression'
+
+  post root $ do
+      contents <- param' "Mathematical Expression"
+      expressionRef <- expression <$> getState
+      let splitInfixExpr = removeItem "\r" . removeItem "\n" . combineNum . removePlusNum . addZeroExponent . addZeroStringUnaryHeadPositiveOrNegative . removeUnaryHeadPositive . combineUnaryOperators . splitToList . unpack $ contents
+      let isInfixValid = infixValidator $ splitInfixExpr
+      let infixCalculation = evaluatePostfix . infixToPostfix $ splitInfixExpr
+      if isInfixValid
+          then do
+                -- only will ever be Just x
+              case infixCalculation of
+                  (Just x)  ->
+                      liftIO $ atomicModifyIORef' expressionRef $ \expression ->
+                          (Expression (pack $ ("Calculated Answer: "++printf "%0.3f" x)), ())
+          else liftIO $ atomicModifyIORef' expressionRef $ \expression ->
+              (Expression "Answer could not be calculated", ())
+      redirect "/" -- refresh screen
+
+  main :: IO ()
+  main = do
+      let expr = Expression ""
+      st <- ServerState <$> newIORef expr-- []
+      cfg <- defaultSpockCfg () PCNoDatabase st
+      runSpock 8080 (spock cfg app)
