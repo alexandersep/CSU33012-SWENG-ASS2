@@ -1,6 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
+import Text.Printf
 import System.IO
 import Lib
 import Web.Spock
