@@ -41,7 +41,7 @@ app = do
   post root $ do
       contents <- param' "Mathematical Expression"
       expressionRef <- expression <$> getState
-      let splitInfixExpr = splitToList . concat . removeItem "\r" . removeItem "\n" . combineNum . removePlusNum . addZeroExponent . addZeroStringUnaryHeadPositiveOrNegative . removeUnaryHeadPositive . combineUnaryOperators . splitToList . unpack $ contents
+      let splitInfixExpr = combineNum . splitToList . concat . removeItem "\r" . removeItem "\n" . combineNum . removePlusNum . addZeroExponent . addZeroStringUnaryHeadPositiveOrNegative . removeUnaryHeadPositive . combineUnaryOperators . splitToList . unpack $ contents
       let isInfixValid = infixValidator $ splitInfixExpr
       let infixCalculation = evaluatePostfix . infixToPostfix $ splitInfixExpr
       if isInfixValid
