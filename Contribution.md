@@ -24,6 +24,11 @@
           parsing, `-` and `+` and ensured it worked effectively
           with Niall's evaluator, and validators. Unary operators do not work in l and e (log() and exp()), and act funny with brackets
 
+* Brian Sharkey
+  * Collaborated with Elliot Lyons to develop a webapp for the calculator
+    * Implemented the calculator into the web app
+  * Contributed on the creation of documentaion
+  * Contributed to creating the demo video
 ### Graph/commit logs
 *TODO*
 
