@@ -1,12 +1,15 @@
+---
+geometry: margin=30mm
+...
 # CSU33012 - Software Engineering - Assignment 1
 * Haskell implementation of Calculator for the Second Assignment.
 
 ## Brief Discription of the App
-* The app was written in Haskell. 
-    - Both the frontend and backend were written in Haskell. 
-        - For the frontend we used a library called Lucid and Spock to create a html from haskell. 
+* The app was written in Haskell.
+    - Both the frontend and backend were written in Haskell.
+        - For the frontend we used a library called Lucid and Spock to create a html from haskell.
         - For the backend we simply used Haskell with Hunit and QuickCheck for unit testing using `stack test`
-    - The calculator took in operators `+-*/^el` where the operators are characters that do 
+    - The calculator took in operators `+-*/^el` where the operators are characters that do
       addition, subtraction, multiplication, division, exp, and log respectively.
         - Algorithm implemented was the shutting yard algorithm to compute and infix expression to postfix and calculated the postfix expression.
         - The expression validator also uses a similar approach to the shutting yard algorithm to check whether an expression is infix and valid.
@@ -17,20 +20,21 @@
           `- - ( 1 + 2 )` is not allowed but `1 - - ( 1 + 2)` is allowed.
         - The answer will be returned to 3 decimal places as required.
         - The textbox does not take into carriage returns when inputting in the web app. Hence a correct answer will be given 
-          if something like `3\n+\n\n\r\n2` is given. (The *\r* and or *\n* are inputted in the web app when pressing enter).
+          if something like `3\n+\n\n\r\n2` is given. (The *\\r* and or *\\n* are inputted in the web app when pressing enter).
     - CI/CD
         - Continuous Integration will be triggered to run unit tests whenever anything is pushed to the main branch including a merge.
         - Continuos Delivery will be triggered when creating a new release tag and it will publish the docker image to dockerhub `asepelenco/interactive-calculator` 
-            - Two releases are in that dockerhub, v1.0.1 (CLI) and v2.0.0 (GUI html). 
+            - Two releases are in that dockerhub, v1.0.1 (CLI) and v2.0.0 (GUI html).
     - Releases
-        - First release v1.0.1 is an implementation of the app before web app. This means it works in the terminal and would be considered a 
+        - First release v1.0.1 is an implementation of the app before web app. This means it works in the terminal and would be considered a
           command line interface (CLI) of the app
-        - Second release v2.0.0 is the final implementation. No terminal support and works on the web with html. The web app runs in `localhost:8080` 
-      
+        - Second release v2.0.0 is the final implementation. No terminal support and works on the web with html. The web app runs in `localhost:8080`
+
+\newpage
 
 ### Contributors & Contributions
 * Alexander Sepelenco
-    - Acted as github lead with organising, README, pull requests, 
+    - Acted as github lead with organising, README, pull requests,
       github workflow, and setting up Haskell with stack before the web app implementation. (Done in Assignment 1)
     - Set up Haskell unit testing: Hunit, and Quickcheck (Done in Assignment 1).
     - Set up github CI/CD workflow with caching and set up Dockerhub.
@@ -71,7 +75,16 @@
 
 
 ### Graph/commit logs
-*TODO*
+* Calculator-Branch \
+![Main Branch 1](imgs/commit3.png) \
+![Main Branch 2](imgs/commit2.png) \
+![Main Branch 3](imgs/commit1.png) \
 
-#### Link To repo
-[https://github.com/alexandersep/CSU33012-SWENG-ASS2](https://github.com/alexandersep/CSU33012-SWENG-ASS2) 
+\newpage
+
+* Network graph \
+![Graph 1](imgs/graph2.png) \
+![Graph 2](imgs/graph1.png) \
+
+### Link To repo
+[https://github.com/alexandersep/CSU33012-SWENG-ASS2](https://github.com/alexandersep/CSU33012-SWENG-ASS2)
