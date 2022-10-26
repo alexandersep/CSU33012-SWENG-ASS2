@@ -1,4 +1,4 @@
-# CSU33012-SWENG-ASS1
+# CSU33012-SWENG-ASS2
 This Haskell implementation was mostly done in Assignment 1 of SWENG found in 
 [Assignment 1](https://github.com/alexandersep/CSU33012-SWENG-ASS2.git). Most of the calculator logic code
 was written in Assignment 1 by Alexander Sepelenco sepelena@tcd.ie and Niall Sauvage sauvagen@tcd.ie.
