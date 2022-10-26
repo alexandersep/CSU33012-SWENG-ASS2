@@ -1,6 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
+import Text.Printf
 import System.IO
 import Lib
 import Web.Spock
@@ -40,7 +41,7 @@ app = do
   post root $ do
       contents <- param' "Mathematical Expression"
       expressionRef <- expression <$> getState
-      let splitInfixExpr = removeItem "\r" . removeItem "\n" . combineNum . removePlusNum . addZeroExponent . addZeroStringUnaryHeadPositiveOrNegative . removeUnaryHeadPositive . combineUnaryOperators . splitToList . unpack $ contents
+      let splitInfixExpr = splitToList . concat . removeItem "\r" . removeItem "\n" . combineNum . removePlusNum . addZeroExponent . addZeroStringUnaryHeadPositiveOrNegative . removeUnaryHeadPositive . combineUnaryOperators . splitToList . unpack $ contents
       let isInfixValid = infixValidator $ splitInfixExpr
       let infixCalculation = evaluatePostfix . infixToPostfix $ splitInfixExpr
       if isInfixValid
@@ -49,7 +50,7 @@ app = do
               case infixCalculation of
                   (Just x)  ->
                       liftIO $ atomicModifyIORef' expressionRef $ \expression ->
-                          (Expression (pack $ ("Calculated Answer: "++printf "%0.3f" x)), ())
+                          (Expression (pack $ ("Calculated Answer: "++printf "%.3f" x)), ())
           else liftIO $ atomicModifyIORef' expressionRef $ \expression ->
               (Expression "Answer could not be calculated", ())
       redirect "/" -- refresh screen
