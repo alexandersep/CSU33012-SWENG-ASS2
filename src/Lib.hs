@@ -9,12 +9,18 @@ module Lib
       evaluatePostfix, evaluateExpression, 
       removeUnaryHeadPositive, combineUnaryOperators,
       addZeroStringUnaryHeadPositiveOrNegative, removePlusNum,
-      combineNum, addZeroExponent, countDots, 
+      combineNum, addZeroExponent, countDots, removeItem
     ) where
 
 import Data.Char (isSpace, isNumber, isDigit) 
 
 -- Source: https://en.wikipedia.org/wiki/Shunting_yard_algorithm
+
+removeItem _ [] = []
+removeItem x (y:ys) 
+ | x == y    = removeItem x ys
+ | otherwise = y : removeItem x ys
+
 addZeroExponent :: [String] -> [String]
 addZeroExponent [] = []
 addZeroExponent [x] = [x]

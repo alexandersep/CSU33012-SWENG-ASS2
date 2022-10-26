@@ -9,13 +9,21 @@ import Lib
       popOperatorStackUpToParen, getFirstElem,
       evaluatePostfix, evaluateExpression, combineUnaryOperators,
       removeUnaryHeadPositive, removePlusNum, addZeroStringUnaryHeadPositiveOrNegative,
-      combineNum, countBrackets, addZeroExponent, countDots
+      combineNum, countBrackets, addZeroExponent, countDots, removeItem
       )
 import           Test.Hspec
 import           Test.QuickCheck
 
 spec :: Spec
 spec = do
+    describe "Validate function for removeItem" $ do
+        it "returns [] for \"5\" [\"5\"]" $ do
+            removeItem "5" ["5"] `shouldBe` [] 
+        it "returns [] for \"5\" [] "$ do
+            removeItem "5" [] `shouldBe` [] 
+        it "returns [] for [\"\\n\",\\r\"] "$ do
+            removeItem "\n" ["\n","\r"] `shouldBe` ["\r"]
+
     describe "Validate function for addZeroExponent" $ do
         it "returns [\"5\"] for [\"5\"]" $ do
             addZeroExponent ["5"] `shouldBe` ["5"] 
