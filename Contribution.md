@@ -44,17 +44,13 @@
           `combineUnaryOperators`, `removeUnaryHeadPositive`, `removePlusNum`,
           `combineNum`, `addZeroExponent`, `countDots`, `isOperand'`. All functions including the ones I wrote
           now take into account the changes for this assignment, these changes are log, exp. Note that these functions were mostly
-          written in Assignment 1 with a different group but had some additions and changes throughout the functions for Assignment 2.
+          written in Assignment 1 with a different group but had some additions and changes throughout the functions for Assignment 2 with 
+          the help of Annelee O' Mahony.
         - Fixed Unary operators partially from Assignment 1 with edge case and parsing, `-` and `+` and ensured it worked effectively
           Unary operators do not work in l and e (log and exp). It does not work with brackets if at the beginning of a line.
           e.g. `-- (1 + 2)` does not work but `1 -- (1 + 2)` does.
 * Elliot Lyons
     - TODO
-* Annelee O Mahony
-    - TODO
-* Brian Sharkey
-    - TODO
-
 * Brian Sharkey
   * Collaborated with Elliot Lyons to develop a webapp for the calculator
     * Implemented the calculator into the web app
