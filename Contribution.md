@@ -83,7 +83,7 @@ geometry: margin=30mm
 \newpage
 
 * Network graph \
-![Graph 1](imgs/graph3.png) \
+![Graph 1](imgs/graph2.png) \
 ![Graph 3](imgs/graph1.png) \
 
 ### Link To repo
